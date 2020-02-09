@@ -10,7 +10,7 @@
             "name": "Attach to Remote",
             "cwd": "${workspaceFolder}",
             "address": "52.204.243.187",
-            "port": 32768,
+            "port": 32769,
             "localRoot": "${workspaceFolder}",
             "remoteRoot": "/usr/src/app",
             "skipFiles": [
