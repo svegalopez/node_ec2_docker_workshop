@@ -13,10 +13,10 @@ async function main() {
     
     await connect();
 
-    app.use('/', (req, res, next) => {
+    app.use('/', async (req, res, next) => {
 
-        const res = await Axios.get(authUrl).catch(err => log.error({ err }, "Error requesting auth"));
-        if(res) next()
+        const authResponse = await Axios.get(authUrl).catch(err => log.error({ err }, "Error requesting auth"));
+        if(authResponse) next()
         else res.json('Nothing Here')
     })
 
