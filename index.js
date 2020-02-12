@@ -5,7 +5,7 @@ const client = require('./database/connect').client;
 const app = express();
 const port = process.env.PORT;
 
-const authUrl = 'http://7158b16c395c/authorize' // should come from service discovery
+const authUrl = 'http://7158b16c395c:3000/authorize' // should come from service discovery
 
 async function main() {
 
@@ -15,7 +15,10 @@ async function main() {
 
     app.use('/', async (req, res, next) => {
 
-        const authResponse = await Axios.get(authUrl).catch(err => log.error({ err }, "Error requesting auth"));
+        const authResponse = await Axios.get(authUrl).catch(err => {
+            console.log(err)
+        });
+        
         if(authResponse) next()
         else res.json('Nothing Here')
     })
