@@ -18,8 +18,8 @@ async function main() {
         const authResponse = await Axios.get(authUrl).catch(err => {
             console.log(err)
         });
-        
-        if(authResponse) next()
+
+        if(authResponse.data) next()
         else res.json('Nothing Here')
     })
 
